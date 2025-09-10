@@ -6,7 +6,7 @@
 #    By: aimokhta <aimokhta@student.42kl.edu.my>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/27 12:20:17 by aimokhta          #+#    #+#              #
-#    Updated: 2025/09/10 16:29:03 by aimokhta         ###   ########.fr        #
+#    Updated: 2025/09/10 17:10:22 by aimokhta         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,8 @@ CFLAG = -Wall -Werror -Wextra -std=c++98 -g -O0 -fsanitize=address
 
 SRC =	\
 		main.cpp \
-		ClapTrap.cpp
+		ClapTrap.cpp \
+		ScavTrap.cpp
 
 OBJ_FOLDER = obj_files
 
