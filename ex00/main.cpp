@@ -6,7 +6,7 @@
 /*   By: aimokhta <aimokhta@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 15:53:38 by aimokhta          #+#    #+#             */
-/*   Updated: 2025/09/10 16:26:05 by aimokhta         ###   ########.fr       */
+/*   Updated: 2025/09/10 16:32:34 by aimokhta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,17 +40,10 @@ int main()
 
 	// cannot attack/repair if _energy_p is 0
 	std::cout << BLUE << "\nFrozone's actions:" << RESET << std::endl;
-	f.attack(c);
-	f.attack(c);
-	f.attack(c);
-	f.attack(c);
-	f.attack(c);
+	for (int i = 0; i < 10; i++)
+		f.attack(c);
+	f.attack(c); // at this point, energy_p=0 so cannot do any repairing/attac anymore
 	f.beRepaired(1);
-	f.beRepaired(1);
-	f.beRepaired(1);
-	f.beRepaired(1);
-	f.beRepaired(1);
-	f.attack(c);
-	
+
 	return (0);
 }
