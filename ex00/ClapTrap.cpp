@@ -6,7 +6,7 @@
 /*   By: aimokhta <aimokhta@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 12:42:03 by aimokhta          #+#    #+#             */
-/*   Updated: 2025/09/10 16:13:45 by aimokhta         ###   ########.fr       */
+/*   Updated: 2025/09/10 17:05:44 by aimokhta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,15 @@ ClapTrap &ClapTrap::operator=( const ClapTrap &other )
 
 void ClapTrap::attack( const std::string &target )
 {
-	if (this->_energy_p <= 0 || this->_hit_p <= 0)
+	if (this->_hit_p <= 0)
 	{
-		std::cout	<< this->_name << " cannot attack as it has 0 energy point." << "\n"
+		std::cout	<< this->_name << " cannot attack, it is now dead as it has 0 hit point" << "\n"
+					<< std::endl;
+		return ;
+	}
+	else if (this->_energy_p <= 0)
+	{
+		std::cout	<< this->_name << " cannot attack, it is now dead as it has reached 0 energy point" << "\n"
 					<< std::endl;
 		return ;
 	}
@@ -77,17 +83,26 @@ void ClapTrap::attack( const std::string &target )
 
 void ClapTrap::takeDamage( unsigned int amount )
 {
-	this->_hit_p -= amount;
-	if (this->_hit_p <= 0) // should i do them private variables unsigned int?
+	if (this->_hit_p > 0 && this->_energy_p > 0)
+	{
+		this->_hit_p -= amount;
+		std::cout	<< "ClapTrap " << this->_name << " is taking damage of "
+					<< amount << " points, causing the lose of hit points.\n";
+	}
+	if (this->_hit_p <= 0)
 	{
 		std::cout	<< this->_name << " is now dead as it has 0 hit point" << "\n"
 					<< std::endl;
 		return ;
 	}
+	else if (this->_energy_p <= 0)
+	{
+		std::cout	<< this->_name << " is now dead as it has reached 0 energy point" << "\n"
+					<< std::endl;
+		return ;
+	}
 
-	std::cout	<< "ClapTrap " << this->_name << " is taking damage of "
-				<< amount << " points, causing the lose of hit points.\n"
-				<< this->_name << "\'s status:\n"
+	std::cout	<< this->_name << "\'s status:\n"
 				<< "Hit point = " << this->_hit_p << "\n"
 				<< "Energy point = " << this->_energy_p << "\n"
 				<< std::endl;
@@ -95,14 +110,19 @@ void ClapTrap::takeDamage( unsigned int amount )
 
 void ClapTrap::beRepaired( unsigned int amount )
 {
-	if (this->_energy_p <= 0 || this->_hit_p <= 0)
+	if (this->_energy_p <= 0)
 	{
-		std::cout	<< this->_name << " cannot repair itself as it has 0 energy point" << "\n"
+		std::cout	<< this->_name << " cannot repair itself, it is now dead as it has reached 0 energy point" << "\n"
 					<< std::endl;
 		return ;
 	}
-
 	this->_hit_p += amount;
+	if (this->_hit_p <= 0)
+	{
+		std::cout	<< this->_name << " cannot repair itself, it is now dead as it has 0 hit point" << "\n"
+					<< std::endl;
+		return ;
+	}
 	--this->_energy_p;
 	std::cout	<< "ClapTrap " << this->_name << " is repairing itself of "
 				<< amount << " points, causing lose of 1 energy point.\n"
