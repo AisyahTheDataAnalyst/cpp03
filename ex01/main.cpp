@@ -6,7 +6,7 @@
 /*   By: aimokhta <aimokhta@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 09:39:28 by aimokhta          #+#    #+#             */
-/*   Updated: 2025/09/11 12:23:52 by aimokhta         ###   ########.fr       */
+/*   Updated: 2025/09/11 12:35:01 by aimokhta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,11 @@ int main()
 
 	std::cout << std::endl;
 	ClapTrap *c = new ScavTrap("Serene"); // runtime polymorphism = one interface (ClapTrap) many forms(ScavTrap, FragTrap(ex02), etc)
+										  // create an object of type ScavTrap on the heap return a pointer of type ScavTrap, store it into a pointer variable type ClapTrap (possible because ScavTrap inherits from ClapTrap)
 	c->attack(d); 			// virtual fn mechanism ensures the correct derived method is called at runtime
 	c->beRepaired(3);
 	c->takeDamage(5);
-	// c->guardGate(); 		// cant be used coz it dosent exist in ClapTrap - even though we created new based on ScavTrap
+	// c->guardGate(); 		// cant be used coz its not in ClapTrap's interface, compiler only lets u use the interface that ClapTrap defines
 	std::cout << std::endl;
 	delete c;
 
