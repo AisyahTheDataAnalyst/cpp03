@@ -6,7 +6,7 @@
 /*   By: aimokhta <aimokhta@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 09:39:28 by aimokhta          #+#    #+#             */
-/*   Updated: 2025/09/11 11:32:05 by aimokhta         ###   ########.fr       */
+/*   Updated: 2025/09/11 12:20:49 by aimokhta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,20 +20,58 @@ int main()
 	a.attack(d);
 	a.beRepaired(3);
 	a.takeDamage(5);
+	// a.guardGate(); 		// cant be use coz ClapTrap dosent have this fn
 
 	std::cout << std::endl;
 	ScavTrap b("Bob");
 	b.attack(d);
 	b.beRepaired(3);
 	b.takeDamage(5);
+	b.guardGate();
 
 	std::cout << std::endl;
-	ClapTrap *c = new ScavTrap("Serene");
-	c->attack(d);
+	ClapTrap *c = new ScavTrap("Serene"); // runtime polymorphism = one interface (ClapTrap) many forms(ScavTrap, FragTrap(ex02), etc)
+	c->attack(d); 			// virtual fn mechanism ensures the correct derived method is called at runtime
 	c->beRepaired(3);
 	c->takeDamage(5);
+	// c->guardGate(); 		// cant be used coz it dosent exist in ClapTrap - even though we created new based on ScavTrap
 	std::cout << std::endl;
 	delete c;
 
 	return 0;
 }
+
+
+// example usage of runtime polymorphism:
+// class Animal 
+// {
+// public:
+//     virtual void makeSound() const {
+//         std::cout << "Some generic animal sound\n";
+//     }
+// };
+
+// class Dog : public Animal 
+// {
+// public:
+//     void makeSound() const {
+//         std::cout << "Woof!\n";
+//     }
+// };
+
+// class Cat : public Animal 
+// {
+// public:
+//     void makeSound() const {
+//         std::cout << "Meow!\n";
+//     }
+// };
+// Now you can write code like:
+
+// cpp
+// Copy code
+// Animal* a1 = new Dog();
+// Animal* a2 = new Cat();
+
+// a1->makeSound();  // "Woof!"
+// a2->makeSound();  // "Meow!"
