@@ -6,7 +6,7 @@
 /*   By: aimokhta <aimokhta@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 17:11:04 by aimokhta          #+#    #+#             */
-/*   Updated: 2025/09/11 10:43:10 by aimokhta         ###   ########.fr       */
+/*   Updated: 2025/09/11 15:17:18 by aimokhta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,6 @@ ScavTrap &ScavTrap::operator=( const ScavTrap &other )
 	return *this;
 }
 
-
-// -------------------------------------------------------
-// OCF (public)
-
 ScavTrap::ScavTrap() : ClapTrap()
 {
 	this->_hit_p = 100;
@@ -41,6 +37,9 @@ ScavTrap::ScavTrap() : ClapTrap()
 	this->_attack_dmg = 20;
 	std::cout << "ScavTrap: Default constructor called" << std::endl;
 }
+
+// -------------------------------------------------------
+// OCF (public)
 
 ScavTrap::ScavTrap( const std::string &name ) 
 : ClapTrap(name)
@@ -60,6 +59,7 @@ ScavTrap::~ScavTrap()
 	std::cout << "ScavTrap: Destructor called on " << this->_name << std::endl;
 }
 
+// ------------------------------------------------------------
 // function member:
 void ScavTrap::guardGate()
 {
