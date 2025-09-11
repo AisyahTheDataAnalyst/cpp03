@@ -6,7 +6,7 @@
 /*   By: aimokhta <aimokhta@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 15:53:38 by aimokhta          #+#    #+#             */
-/*   Updated: 2025/09/10 16:38:22 by aimokhta         ###   ########.fr       */
+/*   Updated: 2025/09/11 10:56:28 by aimokhta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ int main()
 	f.attack(c); // at this point, energy_p=0, so cannot do any repairing/attack/takeDamage anymore
 	f.beRepaired(1);
 	f.takeDamage(2);
+	std::cout << std::endl;
 
 	return (0);
 }

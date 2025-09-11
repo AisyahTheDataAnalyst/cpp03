@@ -6,7 +6,7 @@
 /*   By: aimokhta <aimokhta@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 12:36:26 by aimokhta          #+#    #+#             */
-/*   Updated: 2025/09/10 21:00:21 by aimokhta         ###   ########.fr       */
+/*   Updated: 2025/09/11 11:40:53 by aimokhta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 // poly(many) morph(form) , polymorphic = having many forms = same interface(function name) behave differently dependimg on the actual object
 class ClapTrap
 {
-	private:
+	protected: // change from private originally to protected, so it can be accessed by both derived and base class, but not outside of both class
 		std::string _name;
 		int			_hit_p;
 		int			_energy_p;
@@ -39,7 +39,7 @@ class ClapTrap
 		virtual ~ClapTrap( void ); // always make destructor virtual in polymorphic class - so it prints out both destrutors on base class and derived class despite not having the same name, tells tye compiler"please resolve this destructor dinamically, like other virtual methods"
 		
 		// actions:
-		void attack( const std::string &target );
+		virtual void attack( const std::string &target );
 		void takeDamage( unsigned int amount );
 		void beRepaired( unsigned int amount );
 };
