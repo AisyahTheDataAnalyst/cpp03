@@ -6,7 +6,7 @@
 /*   By: aimokhta <aimokhta@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 09:39:28 by aimokhta          #+#    #+#             */
-/*   Updated: 2025/09/11 12:20:49 by aimokhta         ###   ########.fr       */
+/*   Updated: 2025/09/11 12:23:52 by aimokhta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,10 +68,19 @@ int main()
 // };
 // Now you can write code like:
 
-// cpp
-// Copy code
 // Animal* a1 = new Dog();
 // Animal* a2 = new Cat();
 
 // a1->makeSound();  // "Woof!"
 // a2->makeSound();  // "Meow!"
+
+// another version:
+// std::vector<Animal*> zoo;
+
+// zoo.push_back(new Dog());
+// zoo.push_back(new Cat());
+// // later you could push_back a Bird, Tiger, etc.
+
+// for (size_t i = 0; i < zoo.size(); i++) {
+//     zoo[i]->makeSound();  // Works for ALL animals
+// }
