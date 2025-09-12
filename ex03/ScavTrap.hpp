@@ -9,7 +9,7 @@
 
 class ScavTrap : virtual public ClapTrap // public inheritance: ScavTrap publicly inherits everything that's public & protected in ClapTrap
 {
-	private:
+	protected:
 		// int testing;
 		ScavTrap( const ScavTrap &other );
 		ScavTrap &operator=( const ScavTrap &other );

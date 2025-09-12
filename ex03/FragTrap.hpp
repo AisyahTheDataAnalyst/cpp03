@@ -6,7 +6,7 @@
 /*   By: aimokhta <aimokhta@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 12:39:28 by aimokhta          #+#    #+#             */
-/*   Updated: 2025/09/11 16:12:26 by aimokhta         ###   ########.fr       */
+/*   Updated: 2025/09/12 14:34:08 by aimokhta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 class FragTrap : virtual public ClapTrap
 {
-	private:
+	protected:
 		FragTrap();
 		FragTrap( const FragTrap &other );
 		FragTrap &operator=( const FragTrap &other );
