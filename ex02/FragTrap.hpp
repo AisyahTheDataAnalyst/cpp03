@@ -6,9 +6,12 @@
 /*   By: aimokhta <aimokhta@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 12:39:28 by aimokhta          #+#    #+#             */
-/*   Updated: 2025/09/11 15:11:37 by aimokhta         ###   ########.fr       */
+/*   Updated: 2025/09/15 07:26:09 by aimokhta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef FRAGTRAP_HPP
+# define FRAGTRAP_HPP
 
 #include "ClapTrap.hpp"
 
@@ -24,3 +27,5 @@ class FragTrap : public ClapTrap
 		~FragTrap();
 		void highFivesGuys(void);
 };
+
+#endif

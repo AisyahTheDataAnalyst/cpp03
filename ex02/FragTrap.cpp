@@ -6,7 +6,7 @@
 /*   By: aimokhta <aimokhta@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 12:43:30 by aimokhta          #+#    #+#             */
-/*   Updated: 2025/09/11 15:17:43 by aimokhta         ###   ########.fr       */
+/*   Updated: 2025/09/15 07:41:02 by aimokhta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ FragTrap::FragTrap()
 FragTrap::FragTrap( const FragTrap &other )
 {
 	*this = other;
+	std::cout << "FragTrap: Copy constructor called on " << this->_name << std::endl;
 }
 
 FragTrap &FragTrap::operator=( const FragTrap &other )
@@ -59,5 +60,5 @@ FragTrap &FragTrap::operator=( const FragTrap &other )
 
 void FragTrap::highFivesGuys(void)
 {
-	std::cout << "FragTrap: Yeayy let's high five guys!" << std::endl;
+	std::cout << "FragTrap: " << this->_name << " requests high-fives!" << std::endl;
 }

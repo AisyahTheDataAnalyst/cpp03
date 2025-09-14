@@ -6,7 +6,7 @@
 /*   By: aimokhta <aimokhta@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 12:42:03 by aimokhta          #+#    #+#             */
-/*   Updated: 2025/09/11 14:48:12 by aimokhta         ###   ########.fr       */
+/*   Updated: 2025/09/15 07:02:55 by aimokhta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ ClapTrap::~ClapTrap()
 // OCF (protected)
 
 ClapTrap::ClapTrap( void ) 
+: _name("Default"), _hit_p(10), _energy_p(10), _attack_dmg(0) 
 {
 	std::cout << "ClapTrap: Default constructor is called" << std::endl;
 }
@@ -37,6 +38,7 @@ ClapTrap::ClapTrap( void )
 ClapTrap::ClapTrap( const ClapTrap &other )
 {
 	*this = other;
+	std::cout << "ClapTrap: Copy constructor called on " << this->_name << std::endl;
 }
 
 ClapTrap &ClapTrap::operator=( const ClapTrap &other )
@@ -46,8 +48,9 @@ ClapTrap &ClapTrap::operator=( const ClapTrap &other )
 		this->_name = other._name;
 		this->_hit_p = other._hit_p;
 		this->_energy_p = other._energy_p;
-		this->_attack_dmg = other._attack_dmg; // should be maintain
+		this->_attack_dmg = other._attack_dmg;
 	}
+	std::cout << "ClapTrap: Assignment operator called on " << this->_name << std::endl;
 	return *this;
 }
 
@@ -59,12 +62,12 @@ void ClapTrap::attack( const std::string &target )
 {
 	if (this->_hit_p <= 0)
 	{
-		std::cout	<< this->_name << " cannot attack, it is now dead as it has 0 hit point" << std::endl;
+		std::cout << "ClapTrap " << this->_name << " cannot attack, it is now dead as it has 0 hit point" << std::endl;
 		return ;
 	}
 	else if (this->_energy_p <= 0)
 	{
-		std::cout	<< this->_name << " cannot attack, it is now dead as it has reached 0 energy point" << std::endl;
+		std::cout << "ClapTrap " << this->_name << " cannot attack, it is now dead as it has reached 0 energy point" << std::endl;
 		return ;
 	}
 
@@ -87,12 +90,12 @@ void ClapTrap::takeDamage( unsigned int amount )
 	}
 	if (this->_hit_p <= 0)
 	{
-		std::cout	<< this->_name << " is now dead as it has 0 hit point" << std::endl;
+		std::cout	<< "ClapTrap " << this->_name << " is now dead as it has 0 hit point" << std::endl;
 		return ;
 	}
 	else if (this->_energy_p <= 0)
 	{
-		std::cout	<< this->_name << " is now dead as it has reached 0 energy point" << std::endl;
+		std::cout	<< "ClapTrap " << this->_name << " is now dead as it has reached 0 energy point" << std::endl;
 		return ;
 	}
 
@@ -105,13 +108,13 @@ void ClapTrap::beRepaired( unsigned int amount )
 {
 	if (this->_energy_p <= 0)
 	{
-		std::cout	<< this->_name << " cannot repair itself, it is now dead as it has reached 0 energy point" << std::endl;
+		std::cout	<< "ClapTrap " << this->_name << " cannot repair itself, it is now dead as it has reached 0 energy point" << std::endl;
 		return ;
 	}
 	this->_hit_p += amount;
 	if (this->_hit_p <= 0)
 	{
-		std::cout	<< this->_name << " cannot repair itself, it is now dead as it has 0 hit point" << std::endl;
+		std::cout	<< "ClapTrap " << this->_name << " cannot repair itself, it is now dead as it has 0 hit point" << std::endl;
 		return ;
 	}
 	--this->_energy_p;
