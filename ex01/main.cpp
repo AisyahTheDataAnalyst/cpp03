@@ -6,7 +6,7 @@
 /*   By: aimokhta <aimokhta@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 09:39:28 by aimokhta          #+#    #+#             */
-/*   Updated: 2025/09/15 12:09:23 by aimokhta         ###   ########.fr       */
+/*   Updated: 2025/09/15 13:12:24 by aimokhta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int main()
 
 	std::cout << BLUE << "\nBob's actions:" << RESET << std::endl;
 	ScavTrap b("Bob");
-	b.attack(d);
+	b.attack(d);			// virtual fn mechanism ensures the correct derived method is called at runtime
 	b.takeDamage(5);
 	b.beRepaired(3);
 	b.guardGate();

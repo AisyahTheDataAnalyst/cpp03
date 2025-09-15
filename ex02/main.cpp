@@ -6,7 +6,7 @@
 /*   By: aimokhta <aimokhta@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 15:09:30 by aimokhta          #+#    #+#             */
-/*   Updated: 2025/09/15 12:10:00 by aimokhta         ###   ########.fr       */
+/*   Updated: 2025/09/15 13:14:08 by aimokhta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int main()
 	std::cout << BLUE << "\nSerene's actions:" << RESET << std::endl;
 	ClapTrap *c = new FragTrap("Serene"); // runtime polymorphism = one interface (ClapTrap) many forms(FragTrap, FragTrap(ex02), etc)
 										  // create an object of type FragTrap on the heap return a pointer of type FragTrap, store it into a pointer variable type ClapTrap (possible because FragTrap inherits from ClapTrap)
-	c->attack(d); 			// virtual fn mechanism ensures the correct derived method is called at runtime
+	c->attack(d);
 	c->takeDamage(5);
 	c->beRepaired(3);
 	// c->highFivesGuys(); 		// cant be used coz its not in ClapTrap's interface, compiler only lets u use the interface that ClapTrap defines

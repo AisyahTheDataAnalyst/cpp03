@@ -6,7 +6,7 @@
 /*   By: aimokhta <aimokhta@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 14:15:56 by aimokhta          #+#    #+#             */
-/*   Updated: 2025/09/15 12:36:26 by aimokhta         ###   ########.fr       */
+/*   Updated: 2025/09/15 13:25:47 by aimokhta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,25 +64,36 @@ int main()
 	std::cout << std::endl;
 	delete e;
 
-	std::cout << BLUE << "\nReferencing:" << RESET << std::endl;
-	ClapTrap &ref = d;    // no slicing coz you copy to a base object
-	ref.attack(z);        // virtual
-	ref.takeDamage(5);
-	ref.beRepaired(3);
-	// ref.highFivesGuys();
-	// ref.guardGate();
-	// ref.whoAmI();
+	// ---------------------for learning purposes --------------------------------------------
 
-	std::cout << BLUE << "\nPointers:" << RESET << std::endl;
-	FragTrap *ptr = &d;   // no slicing coz you copy to a base object
-	ptr->attack(z);      
-	ptr->takeDamage(5);
-	ptr->beRepaired(3);
-	ptr->highFivesGuys();
-	// ptr->guardGate();
-	// ptr->whoAmI();
-	std::cout << std::endl;
-	
+	// std::cout << BLUE << "\nReferencing:" << RESET << std::endl;
+	// ClapTrap &ref = d;    // no slicing coz you copy final derived obj to a base obj
+	// ref.attack(z);        // virtual
+	// ref.takeDamage(5);
+	// ref.beRepaired(3);
+	// // ref.highFivesGuys();
+	// // ref.guardGate();
+	// // ref.whoAmI();
+
+	// std::cout << BLUE << "\nPointers:" << RESET << std::endl;
+	// FragTrap *ptr = &d;   // no slicing coz you copy final derived obj to a intermediate derived obj
+	// ptr->attack(z);      
+	// ptr->takeDamage(5);
+	// ptr->beRepaired(3);
+	// ptr->highFivesGuys();
+	// // ptr->guardGate();
+	// // ptr->whoAmI();
+	// std::cout << std::endl;
+
+
+	// DiamondTrap &ref_2 = a; // this cannot compile, 
+	// 🟦 Rule: References/pointers must be compatible types
+	// In C++:
+	// You can have a derived reference/pointer point to a derived object (obviously).
+	// You can have a base reference/pointer point to a derived object (polymorphism).
+	// ❌ But you cannot have a derived reference/pointer point to a base object (not safe).
+	// Base → Derived reference/pointer: ❌ not allowed.
+	// Derived → Base reference/pointer: ✅ allowed (classic polymorphism).
 		
 	// DiamondTrap g; // these are not allowed by the subjects, instances must not interact with each other
 	// g = b;
