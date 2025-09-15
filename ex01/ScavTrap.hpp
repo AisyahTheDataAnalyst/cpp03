@@ -11,9 +11,9 @@ class ScavTrap : public ClapTrap // public inheritance: ScavTrap publicly inheri
 {
 	private:
 		// int testing;
+		ScavTrap();
 		ScavTrap( const ScavTrap &other );
 		ScavTrap &operator=( const ScavTrap &other );
-		ScavTrap();
 
 	// protected:
 	// 	int testing;

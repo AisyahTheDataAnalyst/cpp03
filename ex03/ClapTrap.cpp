@@ -6,7 +6,7 @@
 /*   By: aimokhta <aimokhta@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 12:42:03 by aimokhta          #+#    #+#             */
-/*   Updated: 2025/09/15 07:02:55 by aimokhta         ###   ########.fr       */
+/*   Updated: 2025/09/15 11:27:36 by aimokhta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,9 @@ ClapTrap::ClapTrap( const std::string &name )
 	std::cout << "ClapTrap: Parameterized constructor called on " << this->_name << std::endl;
 }
 
+// Destructors are called reversely
+// No derived class runs after its base is gone.
+// No member runs after something it might depend on is gone.
 ClapTrap::~ClapTrap() 
 {
 	std::cout << "ClapTrap: Destructor called on " << this->_name << std::endl;

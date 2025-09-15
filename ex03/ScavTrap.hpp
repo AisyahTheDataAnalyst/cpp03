@@ -3,20 +3,16 @@
 
 # include "ClapTrap.hpp"
 
-// this is a derived class / child class 
-// = created from an existing class (ClapTrap)
-// = accepts inheritance of members from the base class(ClapTrap)
+// this is the intermediate derived class
+// = derived class of CLapTrap
+// = base class of DiamondTrap
 
 class ScavTrap : virtual public ClapTrap // public inheritance: ScavTrap publicly inherits everything that's public & protected in ClapTrap
 {
 	protected:
-		// int testing;
 		ScavTrap( const ScavTrap &other );
 		ScavTrap &operator=( const ScavTrap &other );
 		ScavTrap();
-
-	// protected:
-	// 	int testing;
 	
 	public:
 		// OCF

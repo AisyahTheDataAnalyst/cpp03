@@ -6,7 +6,7 @@
 /*   By: aimokhta <aimokhta@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 12:42:03 by aimokhta          #+#    #+#             */
-/*   Updated: 2025/09/15 07:30:49 by aimokhta         ###   ########.fr       */
+/*   Updated: 2025/09/15 11:20:35 by aimokhta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,22 +18,24 @@
 ClapTrap::ClapTrap( const std::string &name ) 
 : _name(name), _hit_p(10), _energy_p(10), _attack_dmg(0) 
 {
-	std::cout	<< "ClapTrap: Constructor called on "
-				<< this->_name
-				<< std::endl;
+	std::cout << "ClapTrap: Constructor called on " << this->_name << std::endl;
 }
 
+// Destructors are called reversely
+// No member runs after something it might depend on is gone.
 ClapTrap::~ClapTrap() 
 {
-	std::cout	<< "ClapTrap: Destructor called on "
-				<< this->_name 
-				<< std::endl;
+	std::cout << "ClapTrap: Destructor called on " << this->_name << std::endl;
 }
 
 //---------------------------------------------------
 // OCF (private)
 
-ClapTrap::ClapTrap( void ) {}
+ClapTrap::ClapTrap( void ) 
+: _name("Default"), _hit_p(10), _energy_p(10), _attack_dmg(0) 
+{
+	std::cout << "ClapTrap: Default constructor called" << std::endl;
+}
 
 ClapTrap::ClapTrap( const ClapTrap &other )
 {
@@ -48,7 +50,7 @@ ClapTrap &ClapTrap::operator=( const ClapTrap &other )
 		this->_name = other._name;
 		this->_hit_p = other._hit_p;
 		this->_energy_p = other._energy_p;
-		this->_attack_dmg = other._attack_dmg; // should be maintain
+		this->_attack_dmg = other._attack_dmg;
 	}
 	std::cout << "ClapTrap: Assignment operator called on " << this->_name << std::endl;
 	return *this;
